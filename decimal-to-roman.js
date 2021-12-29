@@ -64,7 +64,6 @@ function test1(number) {
     return array;
   }
   let rest = number % 10;
-  console.log(rest);
 
   array = `${transform(rest, counter)}${array}`;
 

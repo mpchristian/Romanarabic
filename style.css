@@ -3,14 +3,22 @@ body {
   background-color: rgb(138, 177, 138);
 }
 
-h1 , #options {
+#options {
+  margin: 50px 0 50px;
   text-align: center;
-  margin: 70px 0 50px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: larger;
 }
 
 h1 {
+  text-align: center;
   text-decoration: underline;
   color: rgb(151, 15, 15);
+  margin: 70px 0 50px;
 }
 
 #button-change, #button-convert {
@@ -21,12 +29,15 @@ h1 {
 }
 
 #firstEntry , #secondEntry {
+  text-align: center;
   font-size: large;
   width: 100px;
   border-radius: 7px;
+  border: 1px solid black;
 }
 
 #area1 , #area2 {
+  text-align: center;
   font-size: large;
   width: 150px;
   height: 40px;
@@ -42,7 +53,7 @@ h1 {
 
 #area2 {
   vertical-align: middle;
-  line-height: 35px;
+  line-height: 42px;
   padding: 0px;
   position: relative;
   bottom: 18px

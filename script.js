@@ -5,21 +5,19 @@ let answer = document.querySelector('#area2');
 let numberEntry = document.querySelector('#area1');
 
 function putMessage() {
-  {
-    let input = firstEntry.value;
-    let message;
-  
-    if (input === 'Roman') {
-      secondEntry.value = 'Arabic';
-      // Event for put a background message on area1, case its Roman
-      message = 'Number';
-    } else {
-      secondEntry.value = 'Roman';
-      // Event for put a background message on area1, case its Arabic
-      message = 'Roman numerals';
-    }
-    numberEntry.placeholder = message;
+  let input = firstEntry.value;
+  let message;
+
+  if (input === 'Roman') {
+    secondEntry.value = 'Arabic';
+    // Event for put a background message on area1, case its Roman
+    message = 'Roman';
+  } else {
+    secondEntry.value = 'Roman';
+    // Event for put a background message on area1, case its Arabic
+    message = 'Number';
   }
+  numberEntry.placeholder = message;
 }
 
 
@@ -33,12 +31,12 @@ secondEntry.addEventListener('click', () => {
   } else {
     firstEntry.value = 'Roman';
   }
+  putMessage();
 });
 
 // Event for change options by clicking on the button
 let button = document.querySelector('#button-change');
 button.addEventListener('click', () => {
-  putMessage();
   let aux = firstEntry.value;
   firstEntry.value = secondEntry.value;
   secondEntry.value = aux;
@@ -46,13 +44,25 @@ button.addEventListener('click', () => {
   let aux2 = answer.innerText;
   answer.innerText = '';
   numberEntry.value = aux2;
+  putMessage();
 
-  conversion();
 });
 
 // function conversion
 function conversion() {
   let entryOption = firstEntry.value;
+
+  if (entryOption === 'Roman') {
+    if (numberEntry.value.length === 0 || !isNaN(numberEntry.value)) {
+      answer.innerText = '';
+      return;
+    }
+  } else {
+    if (isNaN(numberEntry.value) || parseInt(numberEntry.value)>3999) {
+      answer.innerText = 'Error';
+      return;
+    }
+  }
 
   // Convertion table
   if (entryOption === 'Roman') {
@@ -105,9 +115,16 @@ function conversion() {
     console.log(numberEntry.value);
     let result = convertToDecimals(numberEntry.value.toString(), 0);
 
+    console.log(result.toString());
+
+    if (result.toString() === 'NaN' || parseInt(result) > 3999) {
+      answer.innerText = 'Error';
+      return;
+    }
     answer.innerText = result;
 
   } else {
+
 
     // Convertion table
     function decCharToRoman(string) {
@@ -184,6 +201,8 @@ function conversion() {
 
     // Calling the function
     let result = convertToRoman(parseInt(numberEntry.value));
+
+    console.log(result);
 
     // print the answer
     answer.innerText = result;
