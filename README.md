@@ -10,7 +10,7 @@ o desenvolvimento e uso de algoritmos recursivos.
 
 Insira um gif ou um link de alguma demonstração
 
-<img src="romanarabic-demo" alt="Romanarabic Demo" width="600px">
+<img src="romanarabic-demo.gif" alt="Romanarabic Demo" width="600px">
 
 ## Tecnologias
 
